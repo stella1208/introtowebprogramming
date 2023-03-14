@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Guessing Game</title>
+</head>
+<body>
+	<h1>Guessing Game</h1>
+	<p>Guess a number between 1 and 10:</p>
+	<input type="number" id="guess">
+	<button id="submit">Submit</button>
+	<p id="result"></p>
+
+	<script>
+		const answer = Math.floor(Math.random() * 10) + 1;
+		const guessInput = document.querySelector('#guess');
+		const submitButton = document.querySelector('#submit');
+		const resultDisplay = document.querySelector('#result');
+
+		submitButton.addEventListener('click', () => {
+			const guess = Number(guessInput.value);
+			if (guess === answer) {
+				resultDisplay.textContent = 'You win!';
+			} else {
+				resultDisplay.textContent = `Wrong! The answer was ${answer}.`;
+			}
+		});
+	</script>
+</body>
+</html>
